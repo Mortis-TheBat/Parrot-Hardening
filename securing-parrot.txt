@@ -40,67 +40,47 @@ PermitRootLogin no
 Allow some specific users:
 AllowUsers [username]
 
-=====================================FILE PERMISSIONS
+#Permissions and verifications
+#Prepare yourself mentally because this is going to be a long list. But, permissions is one of the most important and critical tasks to achieve the security goal on a Linux host.
 
-14-Permissions and verifications
-Prepare yourself mentally because this is going to be a long list. But, permissions is one of the most important and critical tasks to achieve the security goal on a Linux host.
+#Set User/Group Owner and Permission on “/etc/anacrontab”, “/etc/crontab” and “/etc/cron.*” by executing the following commands:
 
-Set User/Group Owner and Permission on “/etc/anacrontab”, “/etc/crontab” and “/etc/cron.*” by executing the following commands:
+sudo chown root:root /etc/anacrontab
+sudo chmod og-rwx /etc/anacrontab
+sudo chown root:root /etc/crontab
+sudo chmod og-rwx /etc/crontab
+sudo chown root:root /etc/cron.hourly
+sudo chmod og-rwx /etc/cron.hourly
+sudo chown root:root /etc/cron.daily
+sudo chmod og-rwx /etc/cron.daily
+sudo chown root:root /etc/cron.weekly
+sudo chmod og-rwx /etc/cron.weekly
+sudo chown root:root /etc/cron.monthly
+sudo chmod og-rwx /etc/cron.monthly
+sudo chown root:root /etc/cron.d
+sudo chmod og-rwx /etc/cron.d
 
-#chown root:root /etc/anacrontab
+#Set the right and permissions on “/var/spool/cron” for “root crontab”
 
-#chmod og-rwx /etc/anacrontab
+sudo chown root:root <crontabfile> ################WORK ON IT  
+sudo chmod og-rwx <crontabfile>    ################WORK ON IT
 
-#chown root:root /etc/crontab
+#Set User/Group Owner and Permission on “passwd” file
 
-#chmod og-rwx /etc/crontab
+sudo chmod 644 /etc/passwd
+sudo chown root:root /etc/passwd
 
-#chown root:root /etc/cron.hourly
+#Set User/Group Owner and Permission on the “group” file
 
-#chmod og-rwx /etc/cron.hourly
+sudo chmod 644 /etc/group
+sudo chown root:root /etc/group
 
-#chown root:root /etc/cron.daily
+#Set User/Group Owner and Permission on the “shadow” file
 
-#chmod og-rwx /etc/cron.daily
+sudo chmod 600 /etc/shadow
+sudo chown root:root /etc/shadow
 
-#chown root:root /etc/cron.weekly
+#Set User/Group Owner and Permission on the “gshadow” file
 
-#chmod og-rwx /etc/cron.weekly
-
-#chown root:root /etc/cron.monthly
-
-#chmod og-rwx /etc/cron.monthly
-
-#chown root:root /etc/cron.d
-
-#chmod og-rwx /etc/cron.d
-
-Set the right and permissions on “/var/spool/cron” for “root crontab”
-
-#chown root:root <crontabfile>
-
-#chmod og-rwx <crontabfile>
-
-Set User/Group Owner and Permission on “passwd” file
-
-#chmod 644 /etc/passwd
-
-#chown root:root /etc/passwd
-
-Set User/Group Owner and Permission on the “group” file
-
-#chmod 644 /etc/group
-
-#chown root:root /etc/group
-
-Set User/Group Owner and Permission on the “shadow” file
-
-#chmod 600 /etc/shadow
-
-#chown root:root /etc/shadow
-
-Set User/Group Owner and Permission on the “gshadow” file
-
-#chmod 600 /etc/gshadow
-
-#chown root:root /etc/gshadow
+sudo chmod 600 /etc/gshadow
+sudo chown root:root /etc/gshadow
