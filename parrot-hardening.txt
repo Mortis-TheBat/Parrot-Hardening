@@ -21,9 +21,10 @@
   	#Start AppArmour
   	#sudo systemctl start apparmor
 
-#TASK 2: Telnetd (under test)
-	apt-get install telnetd 
-  
+#TASK 2: Lynis (for security audits) (under review)
+
+	Sudo apt-get install lynis
+	lynis audit system
   
 #TASK 3: RootKit Checks (uses rkhunter and chkrootkit)
 
