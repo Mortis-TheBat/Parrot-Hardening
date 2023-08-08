@@ -20,9 +20,12 @@
 
   	#Start AppArmour
   	#sudo systemctl start apparmor
+
+#TASK 2: Telnetd (under test)
+	apt-get install telnetd 
   
   
-#TASK 2: RootKit Checks (uses rkhunter and chkrootkit)
+#TASK 3: RootKit Checks (uses rkhunter and chkrootkit)
 
   #Setting up rootkit checks
   
@@ -35,7 +38,7 @@
    		sudo chkrootkit
    		
 
-#TASK 3 FILE PERMISSIONS
+#TASK 4: FILE PERMISSIONS
 	Prepare yourself mentally because this is going to be a long list. But, permissions is one of the most important and critical tasks to achieve the security goal on a Linux host.
    		
 	Set User/Group Owner and Permission on “/etc/anacrontab”, “/etc/crontab” and “/etc/cron.*” by executing the following commands:
@@ -81,7 +84,7 @@
 	sudo chown root:root /etc/gshadow
    		
    		
-#TASK 4 Consider making fstab read only (Unimplemented)
+#TASK 5 Consider making fstab read only (Unimplemented)
 #Lock the boot directory (Source: https://www.networkworld.com/article/3143050/linux-hardening-a-15-step-checklist-for-a-secure-linux-server.html)
 #The boot directory contains important files related to the Linux kernel, so you need to make sure to lock it down to read-only permissions by following the next simple steps. First, open the “nano /etc/fstab” file.
 
