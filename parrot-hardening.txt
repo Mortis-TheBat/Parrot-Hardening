@@ -40,7 +40,7 @@
    		
 	Set User/Group Owner and Permission on “/etc/anacrontab”, “/etc/crontab” and “/etc/cron.*” by executing the following commands:
    		
-	chown root:root /etc/anacrontab
+	sudo chown root:root /etc/anacrontab
 	sudo chmod og-rwx /etc/anacrontab
 	sudo chown root:root /etc/crontab
 	sudo chmod og-rwx /etc/crontab
@@ -86,18 +86,20 @@
 #The boot directory contains important files related to the Linux kernel, so you need to make sure to lock it down to read-only permissions by following the next simple steps. First, open the “nano /etc/fstab” file.
 
 
-Finally, set the permissions on the sshd_config file so that only root users can change its contents:
+#Finally, set the permissions on the sshd_config file so that only root users can change its contents:
 
-#sudo chown root:root /etc/ssh/sshd_config
-sudo chmod 600 /etc/ssh/sshd_config
-suco nano /etc/ssh/sshd_config
-Consider changing default ssh port
-Make sure that root cannot login remotely through SSH:
-PermitRootLogin no
+	sudo chown root:root /etc/ssh/sshd_config
+	sudo chmod 600 /etc/ssh/sshd_config
+	suco nano /etc/ssh/sshd_config
+	#Consider changing default ssh port
+
+#Make sure that root cannot login remotely through SSH:
+	#PermitRootLogin no
 
 
 ######################## HONORABLE FUTURE CONSIDERATIONS #############################
-#Firejail - security sandbox
-#lynis    - security auditing
-#Samhain  - Linux IDS
-Tripwire  - Check integrity of files
+# Firejail  - security sandbox
+# lynis     - security auditing
+# Samhain   - Linux IDS
+# Tripwire  - Check integrity of files
+######################################################################################
