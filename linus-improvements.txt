@@ -1,0 +1,6 @@
+#Need to check on each and every package
+sudo apt-get install apt-listbugs
+sudo apt-get install needrestart
+sudo apt-get install debsecan
+sudo apt-get install debsums
+sudo apt-get install fail2ban
